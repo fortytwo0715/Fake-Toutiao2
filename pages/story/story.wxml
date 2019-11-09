@@ -1,0 +1,32 @@
+<!--pages/story/story.wxml-->
+<view class="container">
+  <view class="h1">{{ story.name }}</view>
+  <view class="p">{{ story.content }}</view>
+</view>
+
+<!-- <view class="comment">
+  <view>Comments</view>
+  <view wx:for="{{ comments }}" wx:for-item="comment">{{ comment.name }}</view>
+  <view wx:for="{{ comments }}" wx:for-item="comment">{{ comment.content }}</view> -->
+
+<view class="card-product">
+<form bindsubmit="formSubmit" bindreset="formReset" >
+    <view class="section">
+     <!-- <view name="_id">{{ story._id }}</view> -->
+      <textarea name="name" placeholder="Your name" ></textarea>
+      <textarea name="content" placeholder="Write your comment here" ></textarea>
+    </view>
+    <view class="btn-area">
+      <button formType="submit">Post Comment</button>
+    </view>
+</form>
+</view>
+
+<view class="card-product" wx:for="{{ comments }}" wx:for-item="comment">
+  <view class="h2">{{ comment.name }}</view>
+  <view class="p"> {{ comment.content }}</view>
+  <view data-id="{{comment.id}}" data-votes="{{comment.votes}}"> Votes: {{comment.votes}} </view>
+  <view data-id="{{comment.id}}" data-votes="{{comment.votes}}" bindtap="voteComment">🙋Click me to upvote!🙋‍♂️</view>
+  <view data-id="{{comment.id}}" data-votes="{{comment.votes}}" bindtap="downVote">👎Click me to downvote!👎</view>
+  <view data-id="{{comment.id}}" bindtap="deleteComment" > =======❌❌❌======= </view>
+</view>

@@ -1,0 +1,25 @@
+/* pages/story/story.wxss */
+.comment {
+  box-shadow: 0px 2px 5px #ccc;
+  padding: 100rpx 0;
+  width: 90%;
+  font-size: 12px;
+}
+
+.h2 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.card-product {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 10px 0px;
+  padding: 20px;
+  border-radius:4px;
+}
+
+
+textarea {
+  height: 30px;
+}

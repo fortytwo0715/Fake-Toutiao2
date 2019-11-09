@@ -1,0 +1,18 @@
+<!--pages/landing/landing.wxml-->
+<view class="banner" style="padding:20px 0px; height: 160px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.lewagon.com/api/v1/cities/shenzhen/cover?width=1200);">
+    <view class="h1" bindtap="changeTitle">{{ title }}</view>
+    <view class="p">胡言乱语</view>
+    <navigator class="btn btn-flat" url="/pages/post/post">Submit your 名人名言</navigator>
+</view>
+
+<view class="card-product" wx:for="{{ stories }}" wx:for-item="item" data-id="{{item._id}}" bindtap="showStory">
+  <view class="card-product-infos">
+    <view class="h2">{{ item.name }}</view>
+    <view class="p">{{index+1}} {{ item.content }}</view>
+  </view>
+</view>
+
+
+<view class="card-product">
+  <view class="h2" wx:if="{{ stories.length == 0}}">There's nothing here yet!</view>
+</view>

@@ -1,8 +1,8 @@
 <!--pages/landing/landing.wxml-->
-<view class="banner" style="padding:20px 0px; height: 160px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.lewagon.com/api/v1/cities/shenzhen/cover?width=1200);">
-    <view class="h1" bindtap="changeTitle">{{ title }}</view>
-    <view class="p">胡言乱语</view>
-    <navigator class="btn btn-flat" url="/pages/post/post">Submit your 名人名言</navigator>
+<view class="banner" style="padding:20px 0px; height: 160px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://249646-774481-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2016/02/book-endorsements-700x406.jpg);">
+    <!-- <view class="h1" bindtap="changeTitle">{{ title }}</view> -->
+    <view class="h1">胡言乱语</view>
+    <navigator class="btn btn-flat" url="/pages/post/post">Submit your 痴人说梦</navigator>
 </view>
 
 <view class="card-product" wx:for="{{ stories }}" wx:for-item="item" data-id="{{item._id}}" bindtap="showStory">

@@ -17,11 +17,22 @@ Page({
     });
   },
 
+  getRequestData: function (res) {
+    console.log(res)
+    this.setData({
+      stories: res.data.objects
+    })
+  },
+
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function () {
-  
+    let page = this
+    let tableName = 'stories'
+    let Story = new wx.BaaS.TableObject(tableName)
+
+    Story.find().then(page.getRequestData)
   },
 
   /**
@@ -35,21 +46,22 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-    const page = this
-    const index_endpoint = {
-      header: { 'Authorization': 'Bearer 7a82a2b76c38e309ae34ff3c83c87f8409748b0e' }, 
-      url: 'https://cloud.minapp.com/oserve/v1/table/84988/record',
-      method: 'GET',
+    // 11月9日作业如下————
+    // const page = this
+    // const index_endpoint = {
+    //   header: { 'Authorization': 'Bearer 7a82a2b76c38e309ae34ff3c83c87f8409748b0e' }, 
+    //   url: 'https://cloud.minapp.com/oserve/v1/table/84988/record',
+    //   method: 'GET',
 
-      // API key from Above
-      success(res) {
-        console.log(res)
-        page.setData({
-          stories: res.data.objects
-        })
-      }
-    }
-    wx.request(index_endpoint)
+    //   // API key from Above
+    //   success(res) {
+    //     console.log(res)
+    //     page.setData({
+    //       stories: res.data.objects
+    //     })
+    //   }
+    // }
+    // wx.request(index_endpoint)
   },
 
   /**

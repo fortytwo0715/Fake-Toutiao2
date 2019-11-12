@@ -12,33 +12,40 @@ Page({
 
   formSubmit(event) {
     console.log(event)
-    let story = event.detail.value
-    // app.globalData.stories.unshift(story)
+    // 向 tableName 为 'product' 的数据表插入一条记录
+    let tableName = 'stories'
+    let Story = new wx.BaaS.TableObject(tableName)
+    let story = Story.create()
+    let data = event.detail.value
+    story.set(data).save().then(this.submitSuccess)
 
-    wx.request({
-      url: `https://cloud.minapp.com/oserve/v1/table/84988/record/`,
-      method: 'POST',
-      header: {
-        'Authorization': 'Bearer 7a82a2b76c38e309ae34ff3c83c87f8409748b0e'
-      },
-      data: story,
-      success: this.submitSuccess
-    })
+    // let story = event.detail.value
+    // // app.globalData.stories.unshift(story)
+
+    // wx.request({
+    //   url: `https://cloud.minapp.com/oserve/v1/table/84988/record/`,
+    //   method: 'POST',
+    //   header: {
+    //     'Authorization': 'Bearer 7a82a2b76c38e309ae34ff3c83c87f8409748b0e'
+    //   },
+    //   data: story,
+    //   success: this.submitSuccess
+    // })
 
   },
 
   submitSuccess(res) {
     console.log(res)
-    if (res.statusCode === 201) {
-      wx.navigateBack()
-      wx.showToast({
-        title: 'Yay',
-        icon: 'success'
-      })
+    // if (res.statusCode === 201) {
+    //   // wx.navigateBack()
+      // wx.showToast({
+      //   title: 'Yay',
+      //   icon: 'success'
+      // })
       wx.reLaunch({
-        url: '/pages/index/index',
+        url: '/pages/landing/landing',
       })
-    }
+    // }
   },
 
   /**

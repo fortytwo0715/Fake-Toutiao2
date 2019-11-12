@@ -1,7 +1,7 @@
 <!--pages/story/story.wxml-->
 <view class="container">
-  <view class="h1">{{ story.name }}</view>
-  <view class="p">{{ story.content }}</view>
+  <view class="h1">{{ story.content }}</view>
+  <view class="p">{{ story.name }}</view>
 </view>
 
 <!-- <view class="comment">

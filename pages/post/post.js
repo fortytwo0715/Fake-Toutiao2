@@ -36,16 +36,16 @@ Page({
 
   submitSuccess(res) {
     console.log(res)
-    // if (res.statusCode === 201) {
-    //   // wx.navigateBack()
-      // wx.showToast({
-      //   title: 'Yay',
-      //   icon: 'success'
-      // })
-      wx.reLaunch({
-        url: '/pages/landing/landing',
+    if (res.statusCode === 201) {
+      // wx.navigateBack()
+      wx.showToast({
+        title: 'Yay',
+        icon: 'success'
       })
-    // }
+      setTimeout(() => wx.redirectTo({
+        url: '/pages/landing/landing',
+      }), 200)
+    }
   },
 
   /**
